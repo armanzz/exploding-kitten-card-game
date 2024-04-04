@@ -13,7 +13,7 @@ const UsernameInput = (props) => { // props parameter is added here
   const handleStartGame = async () => {
     if (localUsername.trim() !== '') {
       try {
-        await axios.post('/api/register', { username: localUsername });
+        await axios.post('https://kittenbackend.onrender.com/api/register/api/register', { username: localUsername });
          // Call setUsername here
         props.startGame();
 
