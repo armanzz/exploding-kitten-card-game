@@ -13,7 +13,7 @@ function Game({ deck, gameOver, defuses, drawnCard, drawCard, startGame, usernam
     const updateWins = async () => {
       try {
           // Make POST request to update user's wins
-          await axios.post('/api/win', { username: username },  {
+          await axios.post('https://kittenbackend.onrender.com/api/register/api/win', { username: username },  {
               headers: {
                   'Content-Type': 'application/json',
               },
