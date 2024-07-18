@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import './style1.css';
+import './style1.css'; // Assuming this is your CSS file for styling
 
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { connect } from 'react-redux';
-import {startGame, setUsername as setReduxUsername} from '../redux/action';
+import { startGame, setUsername as setReduxUsername } from '../redux/action'; // Adjust path as needed
 
-const UsernameInput = (props) => { // props parameter is added here
+const UsernameInput = (props) => {
   const [localUsername, setLocalUsername] = useState('');
   const navigate = useNavigate();
 
@@ -14,13 +14,10 @@ const UsernameInput = (props) => { // props parameter is added here
     navigate('/game');
     if (localUsername.trim() !== '') {
       try {
-        await axios.post('https://kittenbackend.onrender.com/api/register/api/register', { username: localUsername });
-         // Call setUsername here
+        await axios.post('http://localhost:8080/api/register', { username: localUsername });
         props.startGame();
-
-       // startGame action is dispatched here
+        props.setReduxUsername(localUsername);
         navigate('/game'); // Navigate to the game page
-        props.setReduxUsername(localUsername); 
       } catch (error) {
         console.error('Error registering user:', error);
       }
@@ -35,23 +32,37 @@ const UsernameInput = (props) => { // props parameter is added here
 
   return (
     <div className="username-input-container">
-        <h1 className="game-title">Exploding Kitten Game</h1> 
-        
-        <input
-            className="username-input"
-            type="text"
-            placeholder="Enter username"
-            value={localUsername}
-            onChange={(e) => setLocalUsername(e.target.value)}
-        />
-        <button className="button" onClick={handleStartGame}>
-            Start Game
-        </button>
-        <button className="button" onClick={handleViewLeaderboard}>
-            View Leaderboard
-        </button>
+     
+
+     
+      <div className="game-motive">
+        <h2>Rules:</h2>
+        <p>
+         
+          Players draw cards until someone draws a Bomb, they are out of the game unless they have a defuse card!
+        </p>
+        <p>Cat Card</p>
+          <p>Bomb Card</p> 
+          <p>Defuse Card</p>
+          <p> Shuffle Card</p>
+       
+      </div>
+
+      <input
+        className="username-input"
+        type="text"
+        placeholder="Enter username"
+        value={localUsername}
+        onChange={(e) => setLocalUsername(e.target.value)}
+      />
+      <button className="button" onClick={handleStartGame}>
+        Start Game
+      </button>
+      <button className="button" onClick={handleViewLeaderboard}>
+        View Leaderboard
+      </button>
     </div>
-);
+  );
 };
 
-export default connect(null, {startGame,setReduxUsername})(UsernameInput);
+export default connect(null, { startGame, setReduxUsername })(UsernameInput);
