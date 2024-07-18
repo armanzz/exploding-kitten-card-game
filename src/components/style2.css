@@ -1,36 +1,38 @@
 .leaderboard-container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    text-align: center;
-  }
-  
-  .leaderboard-title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 20px;
-  }
-  
-  .leaderboard-list {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .leaderboard-item {
-    margin-bottom: 10px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    padding: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .leaderboard-username {
-    font-weight: bold;
-    color: #333;
-  }
-  
-  .leaderboard-wins {
-    margin-left: 10px;
-    color: #666;
-  }
-  
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  background-image: url('./ldb.jpg'); /* Path to your background photo */
+  background-size: cover; /* Cover the entire container */
+  background-position: center; /* Center the background image */
+}
+
+.leaderboard-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.leaderboard-list {
+  list-style: none;
+  padding: 0;
+}
+
+.leaderboard-item {
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.leaderboard-username {
+  font-weight: bold;
+  color: #333;
+}
+
+.leaderboard-wins {
+  margin-left: 10px;
+  color: #666;
+}
