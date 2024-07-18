@@ -6,7 +6,7 @@ const Leaderboard = () => {
   const [leaderboard, setLeaderboard] = useState([]);
 
   useEffect(() => {
-    axios.get('https://kittenbackend.onrender.com/api/register/api/leaderboard')
+    axios.get('http://localhost:8080/api/leaderboard')
       .then((response) => {
         setLeaderboard(response.data);
       })
