@@ -11,6 +11,7 @@ const UsernameInput = (props) => { // props parameter is added here
   const navigate = useNavigate();
 
   const handleStartGame = async () => {
+    navigate('/game');
     if (localUsername.trim() !== '') {
       try {
         await axios.post('https://kittenbackend.onrender.com/api/register/api/register', { username: localUsername });
